@@ -1,1 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VELORA DIGITAL | Client Requirement Form</title>
+
+<meta name="description"
+content="VELORA DIGITAL premium client requirement and project onboarding form.">
+
+<link rel="icon" href="logo.png">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --black:#05020b;
+    --black2:#0b0615;
+    --purple:#7c20ff;
+    --violet:#a855f7;
+    --light-purple:#c084fc;
+    --white:#ffffff;
+    --muted:#b7adc8;
+    --border:rgba(168,85,247,.25);
+    --glass:rgba(15,8,30,.78);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--black);
+    color:white;
+    line-height:1.6;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+
+    background:rgba(5,2,11,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1250px;
+    height:100%;
+    margin:auto;
+    padding:0 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:white;
+}
+
+.logo img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-right a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-btn{
+    border:1px solid var(--violet);
+    padding:10px 18px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:var(--purple);
+    box-shadow:0 0 25px rgba(124,32,255,.5);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding:120px 25px 80px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,2,11,.92),
+            rgba(5,2,11,.45)
+        ),
+        url("home-bg.png");
+
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(124,32,255,.20),
+            transparent 35%
+        );
+
+    pointer-events:none;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-small{
+    color:var(--light-purple);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    max-width:750px;
+    font-size:clamp(45px,7vw,82px);
+    line-height:1.02;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #c084fc,
+        #7c20ff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:620px;
+    color:#d2c9df;
+    font-size:18px;
+    margin:28px 0;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    padding:15px 26px;
+    border-radius:8px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #7c20ff,
+        #a855f7
+    );
+    box-shadow:0 0 30px rgba(124,32,255,.35);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 45px rgba(124,32,255,.65);
+}
+
+.btn-outline{
+    color:white;
+    background:transparent;
+    border:1px solid var(--border);
+}
+
+.btn-outline:hover{
+    border-color:var(--violet);
+    background:rgba(124,32,255,.12);
+}
+
+/* ================= FORM AREA ================= */
+
+.form-section{
+    padding:100px 20px;
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(124,32,255,.12),
+            transparent 35%
+        ),
+        var(--black);
+}
+
+.container{
+    max-width:1050px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading small{
+    color:var(--light-purple);
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:700;
+}
+
+.section-heading h2{
+    font-size:42px;
+    margin:10px 0;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-wrap{
+    position:sticky;
+    top:78px;
+    z-index:900;
+
+    padding:15px 20px;
+
+    background:rgba(5,2,11,.88);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.progress-inner{
+    max-width:1050px;
+    margin:auto;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    color:#cfc4dc;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.progress-bar{
+    height:5px;
+    border-radius:20px;
+    background:#21152d;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #7c20ff,
+        #d946ef
+    );
+    transition:.3s;
+}
+
+/* ================= CARDS ================= */
+
+.form-card{
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+}
+
+.form-card h3{
+    font-size:24px;
+    margin-bottom:7px;
+}
+
+.form-card .subtitle{
+    color:var(--muted);
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+label{
+    font-size:13px;
+    color:#ddd2e9;
+    font-weight:600;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px 15px;
+
+    color:white;
+    background:#0b0614;
+
+    border:1px solid rgba(168,85,247,.22);
+    border-radius:9px;
+
+    outline:none;
+    transition:.25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--violet);
+    box-shadow:0 0 0 3px rgba(168,85,247,.10);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+option{
+    background:#0b0614;
+}
+
+/* ================= CHECKBOX ================= */
+
+.check-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px;
+    border:1px solid rgba(168,85,247,.15);
+    border-radius:8px;
+    background:rgba(255,255,255,.02);
+}
+
+.check input{
+    width:auto;
+}
+
+/* ================= FINAL ================= */
+
+.final-card{
+    text-align:center;
+    padding:45px 25px;
+    border:1px solid rgba(168,85,247,.35);
+    border-radius:20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124,32,255,.16),
+            transparent 65%
+        ),
+        #09040f;
+}
+
+.final-card h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.final-card p{
+    color:var(--muted);
+    max-width:650px;
+    margin:0 auto 25px;
+}
+
+.submit-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:45px 20px;
+    text-align:center;
+
+    border-top:1px solid var(--border);
+    background:#030107;
+}
+
+.footer-logo{
+    width:70px;
+    margin-bottom:12px;
+}
+
+footer h3{
+    letter-spacing:3px;
+}
+
+footer p{
+    color:var(--muted);
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    header{
+        height:68px;
+    }
+
+    .logo img{
+        width:43px;
+        height:43px;
+    }
+
+    .logo span{
+        font-size:16px;
+        letter-spacing:2px;
+    }
+
+    .nav-right a:not(.nav-btn){
+        display:none;
+    }
+
+    .hero{
+        min-height:90vh;
+        padding-top:120px;
+    }
+
+    .hero h1{
+        font-size:45px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .check-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-card{
+        padding:22px;
+    }
+
+    .section-heading h2{
+        font-size:32px;
+    }
+
+    .progress-wrap{
+        top:68px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="nav">
+
+        <a href="#" class="logo">
+            <img src="logo.png" alt="VELORA DIGITAL Logo">
+            <span>VELORA DIGITAL</span>
+        </a>
+
+        <div class="nav-right">
+            <a href="#form">Requirements</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            VELORA DIGITAL
+        </div>
+
+        <h1>
+            Your Vision.
+            <br>
+            <span>Our Digital Expertise.</span>
+        </h1>
+
+        <p>
+            Tell us everything about your business, website,
+            application or e-commerce project. Our requirement
+            form helps us understand exactly what you need.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#form" class="btn btn-primary">
+                START REQUIREMENTS →
+            </a>
+
+            <a href="#form" class="btn btn-outline">
+                VIEW FORM
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<div class="progress-wrap">
+
+    <div class="progress-inner">
+
+        <div class="progress-text">
+            <span>Requirement Progress</span>
+            <span id="progressText">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FORM ================= -->
+
+<section class="form-section" id="form">
+
+<div class="container">
+
+<div class="section-heading">
+
+    <small>Client Onboarding</small>
+
+    <h2>Project Requirement Form</h2>
+
+    <p>
+        Please provide as much information as possible.
+        This helps us create the right solution for your business.
+    </p>
+
+</div>
+
+<form id="clientForm">
+
+
+<!-- CLIENT -->
+
+<div class="form-card">
+
+<h3>01 — Client Information</h3>
+
+<p class="subtitle">
+Tell us about yourself and your business.
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>Full Name *</label>
+<input name="Full Name" required>
+</div>
+
+<div class="field">
+<label>Company / Business Name *</label>
+<input name="Business Name" required>
+</div>
+
+<div class="field">
+<label>Phone / WhatsApp *</label>
+<input name="Phone" required>
+</div>
+
+<div class="field">
+<label>Email *</label>
+<input type="email" name="Email" required>
+</div>
+
+<div class="field">
+<label>Business Location</label>
+<input name="Location">
+</div>
+
+<div class="field">
+<label>Business Type</label>
+<select name="Business Type">
+<option value="">Select</option>
+<option>Startup</option>
+<option>Small Business</option>
+<option>Medium Business</option>
+<option>Large Business</option>
+<option>Personal Brand</option>
+<option>Professional</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Tell us about your business</label>
+<textarea name="Business Description"></textarea>
+</div>
+
+</div>
+</div>
+
+
+<!-- PROJECT -->
+
+<div class="form-card">
+
+<h3>02 — Project Type</h3>
+
+<p class="subtitle">
+What are you looking to build?
+</p>
+
+<div class="check-grid">
+
+<label class="check">
+<input type="checkbox" name="Project" value="Business Website">
+Business Website
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="E-Commerce Website">
+E-Commerce Website
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="Portfolio Website">
+Portfolio Website
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="Web Application">
+Web Application
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="Mobile Application">
+Mobile Application
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="Landing Page">
+Landing Page
+</label>
+
+<label class="check">
+<input type="checkbox" name="Project" value="Other">
+Other
+</label>
+
+</div>
+
+<br>
+
+<div class="field">
+<label>Main objective of the project</label>
+<textarea name="Project Objective"></textarea>
+</div>
+
+</div>
+
+
+<!-- BRAND -->
+
+<div class="form-card">
+
+<h3>03 — Brand & Design</h3>
+
+<p class="subtitle">
+Tell us how the website should look.
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>Do you already have a logo?</label>
+<select name="Logo">
+<option>Yes</option>
+<option>No</option>
+<option>Need logo design</option>
+</select>
+</div>
+
+<div class="field">
+<label>Preferred design style</label>
+<select name="Design Style">
+<option>Premium</option>
+<option>Luxury</option>
+<option>Minimal</option>
+<option>Modern</option>
+<option>Corporate</option>
+<option>Futuristic</option>
+<option>Creative</option>
+</select>
+</div>
+
+<div class="field">
+<label>Primary brand colour</label>
+<input name="Primary Colour">
+</div>
+
+<div class="field">
+<label>Secondary brand colour</label>
+<input name="Secondary Colour">
+</div>
+
+<div class="field full">
+<label>Reference websites / designs you like</label>
+<textarea name="Design References"></textarea>
+</div>
+
+</div>
+</div>
+
+
+<!-- WEBSITE -->
+
+<div class="form-card">
+
+<h3>04 — Website Requirements</h3>
+
+<p class="subtitle">
+Select the pages and features you need.
+</p>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Pages" value="Home"> Home</label>
+<label class="check"><input type="checkbox" name="Pages" value="About"> About Us</label>
+<label class="check"><input type="checkbox" name="Pages" value="Services"> Services</label>
+<label class="check"><input type="checkbox" name="Pages" value="Products"> Products</label>
+<label class="check"><input type="checkbox" name="Pages" value="Gallery"> Gallery</label>
+<label class="check"><input type="checkbox" name="Pages" value="Portfolio"> Portfolio</label>
+<label class="check"><input type="checkbox" name="Pages" value="Blog"> Blog</label>
+<label class="check"><input type="checkbox" name="Pages" value="Contact"> Contact</label>
+<label class="check"><input type="checkbox" name="Pages" value="FAQ"> FAQ</label>
+<label class="check"><input type="checkbox" name="Pages" value="Privacy Policy"> Privacy Policy</label>
+<label class="check"><input type="checkbox" name="Pages" value="Terms"> Terms & Conditions</label>
+
+</div>
+
+<br>
+
+<div class="field">
+<label>Other pages required</label>
+<textarea name="Other Pages"></textarea>
+</div>
+
+</div>
+
+
+<!-- ECOMMERCE -->
+
+<div class="form-card">
+
+<h3>05 — E-Commerce Requirements</h3>
+
+<p class="subtitle">
+For online stores and product-based businesses.
+</p>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Ecommerce" value="Product Catalogue"> Product Catalogue</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Shopping Cart"> Shopping Cart</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Wishlist"> Wishlist</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Checkout"> Checkout</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Customer Accounts"> Customer Accounts</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Order Tracking"> Order Tracking</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Coupons"> Coupons</label>
+<label class="check"><input type="checkbox" name="Ecommerce" value="Reviews"> Reviews</label>
+</div>
+
+<br>
+
+<div class="grid">
+
+<div class="field">
+<label>Approximate number of products</label>
+<input name="Product Count">
+</div>
+
+<div class="field">
+<label>Product categories</label>
+<input name="Product Categories">
+</div>
+
+<div class="field full">
+<label>Product details / special requirements</label>
+<textarea name="Product Requirements"></textarea>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="form-card">
+
+<h3>06 — Payment & Checkout</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Payment" value="UPI"> UPI</label>
+<label class="check"><input type="checkbox" name="Payment" value="Cards"> Debit / Credit Cards</label>
+<label class="check"><input type="checkbox" name="Payment" value="Net Banking"> Net Banking</label>
+<label class="check"><input type="checkbox" name="Payment" value="Cash on Delivery"> Cash on Delivery</label>
+<label class="check"><input type="checkbox" name="Payment" value="Payment Gateway"> Payment Gateway</label>
+
+</div>
+
+<br>
+
+<div class="field">
+<label>Preferred payment gateway</label>
+<input name="Payment Gateway" placeholder="Razorpay, Stripe, Cashfree, etc.">
+</div>
+
+</div>
+
+
+<!-- SHIPPING -->
+
+<div class="form-card">
+
+<h3>07 — Shipping & Delivery</h3>
+
+<div class="grid">
+
+<div class="field">
+<label>Shipping required?</label>
+<select name="Shipping">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div class="field">
+<label>Delivery areas</label>
+<input name="Delivery Areas">
+</div>
+
+<div class="field">
+<label>Shipping partner</label>
+<input name="Shipping Partner">
+</div>
+
+<div class="field">
+<label>Expected delivery time</label>
+<input name="Delivery Time">
+</div>
+
+<div class="field full">
+<label>Shipping requirements</label>
+<textarea name="Shipping Requirements"></textarea>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COMMUNICATION -->
+
+<div class="form-card">
+
+<h3>08 — Communication & Notifications</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Communication" value="WhatsApp"> WhatsApp</label>
+<label class="check"><input type="checkbox" name="Communication" value="Email"> Email</label>
+<label class="check"><input type="checkbox" name="Communication" value="SMS"> SMS</label>
+<label class="check"><input type="checkbox" name="Communication" value="Order Notifications"> Order Notifications</label>
+<label class="check"><input type="checkbox" name="Communication" value="Contact Form"> Contact Form</label>
+
+</div>
+
+<br>
+
+<div class="field">
+<label>WhatsApp / communication requirements</label>
+<textarea name="Communication Requirements"></textarea>
+</div>
+
+</div>
+
+
+<!-- DOMAIN -->
+
+<div class="form-card">
+
+<h3>09 — Domain, Hosting & Business Email</h3>
+
+<div class="grid">
+
+<div class="field">
+<label>Do you have a domain?</label>
+<select name="Domain">
+<option>Yes</option>
+<option>No</option>
+<option>Need assistance</option>
+</select>
+</div>
+
+<div class="field">
+<label>Domain name</label>
+<input name="Domain Name">
+</div>
+
+<div class="field">
+<label>Hosting available?</label>
+<select name="Hosting">
+<option>Yes</option>
+<option>No</option>
+<option>Need hosting</option>
+</select>
+</div>
+
+<div class="field">
+<label>Business email required?</label>
+<select name="Business Email">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SEO -->
+
+<div class="form-card">
+
+<h3>10 — SEO & Marketing</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="SEO" value="Google SEO"> Google SEO</label>
+<label class="check"><input type="checkbox" name="SEO" value="Google Business"> Google Business Profile</label>
+<label class="check"><input type="checkbox" name="SEO" value="Analytics"> Google Analytics</label>
+<label class="check"><input type="checkbox" name="SEO" value="Search Console"> Search Console</label>
+<label class="check"><input type="checkbox" name="SEO" value="Social Media"> Social Media Integration</label>
+<label class="check"><input type="checkbox" name="SEO" value="Meta Pixel"> Meta Pixel</label>
+
+</div>
+
+<br>
+
+<div class="field">
+<label>Target keywords / audience</label>
+<textarea name="SEO Keywords"></textarea>
+</div>
+
+</div>
+
+
+<!-- CONTENT -->
+
+<div class="form-card">
+
+<h3>11 — Content & Media</h3>
+
+<div class="grid">
+
+<div class="field">
+<label>Who provides website content?</label>
+<select name="Content">
+<option>Client</option>
+<option>VELORA DIGITAL</option>
+<option>Both</option>
+</select>
+</div>
+
+<div class="field">
+<label>Photography required?</label>
+<select name="Photography">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div class="field">
+<label>Video required?</label>
+<select name="Video">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+
+<div class="field">
+<label>Languages</label>
+<input name="Languages" placeholder="English, Kannada, Hindi...">
+</div>
+
+<div class="field full">
+<label>Content requirements</label>
+<textarea name="Content Requirements"></textarea>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div class="form-card">
+
+<h3>12 — Admin & Management</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Admin" value="Admin Dashboard"> Admin Dashboard</label>
+<label class="check"><input type="checkbox" name="Admin" value="Product Management"> Product Management</label>
+<label class="check"><input type="checkbox" name="Admin" value="Order Management"> Order Management</label>
+<label class="check"><input type="checkbox" name="Admin" value="Customer Management"> Customer Management</label>
+<label class="check"><input type="checkbox" name="Admin" value="Inventory"> Inventory Management</label>
+<label class="check"><input type="checkbox" name="Admin" value="Reports"> Reports</label>
+<label class="check"><input type="checkbox" name="Admin" value="Staff Accounts"> Staff Accounts</label>
+
+</div>
+
+</div>
+
+
+<!-- LEGAL -->
+
+<div class="form-card">
+
+<h3>13 — Legal & Policies</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" name="Legal" value="Privacy Policy"> Privacy Policy</label>
+<label class="check"><input type="checkbox" name="Legal" value="Terms"> Terms & Conditions</label>
+<label class="check"><input type="checkbox" name="Legal" value="Refund Policy"> Refund Policy</label>
+<label class="check"><input type="checkbox" name="Legal" value="Shipping Policy"> Shipping Policy</label>
+<label class="check"><input type="checkbox" name="Legal" value="Cookie Policy"> Cookie Policy</label>
+
+</div>
+
+</div>
+
+
+<!-- BUDGET -->
+
+<div class="form-card">
+
+<h3>14 — Timeline & Budget</h3>
+
+<div class="grid">
+
+<div class="field">
+<label>Expected project timeline</label>
+<select name="Timeline">
+<option>1–2 Weeks</option>
+<option>2–4 Weeks</option>
+<option>1–2 Months</option>
+<option>2–3 Months</option>
+<option>Flexible</option>
+</select>
+</div>
+
+<div class="field">
+<label>Estimated budget</label>
+<select name="Budget">
+<option>Below ₹10,000</option>
+<option>₹10,000 – ₹25,000</option>
+<option>₹25,000 – ₹50,000</option>
+<option>₹50,000 – ₹1,00,000</option>
+<option>₹1,00,000+</option>
+<option>Discuss with VELORA DIGITAL</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Deadline / important date</label>
+<input type="date" name="Deadline">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EXTRA -->
+
+<div class="form-card">
+
+<h3>15 — Final Requirements</h3>
+
+<div class="field">
+
+<label>
+Anything else we should know?
+</label>
+
+<textarea
+name="Final Requirements"
+placeholder="Tell us anything important that was not covered above..."
+></textarea>
+
+</div>
+
+<br>
+
+<div class="field">
+
+<label>
+Additional notes
+</label>
+
+<textarea name="Additional Notes"></textarea>
+
+</div>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="final-card">
+
+<h2>Ready to Start?</h2>
+
+<p>
+Review your information and submit your requirements.
+Your completed project brief will be prepared for
+VELORA DIGITAL.
+</p>
+
+<div class="submit-buttons">
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="submitWhatsApp()"
+>
+SUBMIT VIA WHATSAPP
+</button>
+
+<button
+type="button"
+class="btn btn-outline"
+onclick="submitEmail()"
+>
+SEND VIA EMAIL
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+<img src="logo.png" class="footer-logo" alt="VELORA DIGITAL">
+
+<h3>VELORA DIGITAL</h3>
+
+<p>
+Digital Presence. Elevated.
+</p>
+
+<p>
+WhatsApp: +91 6360695474
+</p>
+
+<p>
+Email: veloradigitalco.in@gmail.com
+</p>
+
+<p style="margin-top:20px;">
+© 2026 VELORA DIGITAL. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* ================= PROGRESS ================= */
+
+const form = document.getElementById("clientForm");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+
+function updateProgress(){
+
+    const fields = form.querySelectorAll(
+        "input:not([type='checkbox']), select, textarea"
+    );
+
+    let completed = 0;
+
+    fields.forEach(field => {
+
+        if(field.value.trim() !== ""){
+            completed++;
+        }
+
+    });
+
+    const percentage =
+        fields.length === 0
+        ? 0
+        : Math.round((completed / fields.length) * 100);
+
+    progressFill.style.width = percentage + "%";
+    progressText.textContent = percentage + "%";
+}
+
+form.addEventListener("input", updateProgress);
+form.addEventListener("change", updateProgress);
+
+
+/* ================= COLLECT DATA ================= */
+
+function collectFormData(){
+
+    const formData = new FormData(form);
+    const data = {};
+
+    for(const [key,value] of formData.entries()){
+
+        if(data[key]){
+
+            if(!Array.isArray(data[key])){
+                data[key] = [data[key]];
+            }
+
+            data[key].push(value);
+
+        }else{
+
+            data[key] = value;
+
+        }
+
+    }
+
+    return data;
+}
+
+
+/* ================= CREATE SUMMARY ================= */
+
+function createSummary(){
+
+    const data = collectFormData();
+
+    let message = "";
+
+    message += "VELORA DIGITAL\n";
+    message += "━━━━━━━━━━━━━━━━━━━━\n";
+    message += "NEW CLIENT PROJECT REQUIREMENT\n";
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+
+    for(const key in data){
+
+        let value = data[key];
+
+        if(Array.isArray(value)){
+            value = value.join(", ");
+        }
+
+        if(value && value.toString().trim() !== ""){
+
+            message += key.toUpperCase() + ":\n";
+            message += value + "\n\n";
+
+        }
+
+    }
+
+    message += "━━━━━━━━━━━━━━━━━━━━\n";
+    message += "Submitted through VELORA DIGITAL\n";
+    message += "Digital Presence. Elevated.\n";
+
+    return message;
+}
+
+
+/* ================= WHATSAPP ================= */
+
+function submitWhatsApp(){
+
+    if(!form.checkValidity()){
+
+        form.reportValidity();
+
+        return;
+
+    }
+
+    const message = createSummary();
+
+    const phone = "916360695474";
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+}
+
+
+/* ================= EMAIL ================= */
+
+function submitEmail(){
+
+    if(!form.checkValidity()){
+
+        form.reportValidity();
+
+        return;
+
+    }
+
+    const message = createSummary();
+
+    const subject =
+        "New Client Requirement — VELORA DIGITAL";
+
+    const url =
+        "mailto:veloradigitalco.in@gmail.com" +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(message);
+
+    window.location.href = url;
+
+}
+
+
+/* ================= SAVE DRAFT ================= */
+
+function saveDraft(){
+
+    const data = {};
+
+    const fields =
+        form.querySelectorAll(
+            "input, select, textarea"
+        );
+
+    fields.forEach(field => {
+
+        if(field.type === "checkbox"){
+
+            data[field.name] =
+                field.checked;
+
+        }else{
+
+            data[field.name] =
+                field.value;
+
+        }
+
+    });
+
+    localStorage.setItem(
+        "veloraClientDraft",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* ================= LOAD DRAFT ================= */
+
+function loadDraft(){
+
+    const saved =
+        localStorage.getItem(
+            "veloraClientDraft"
+        );
+
+    if(!saved) return;
+
+    const data =
+        JSON.parse(saved);
+
+    const fields =
+        form.querySelectorAll(
+            "input, select, textarea"
+        );
+
+    fields.forEach(field => {
+
+        if(data[field.name] === undefined){
+            return;
+        }
+
+        if(field.type === "checkbox"){
+
+            field.checked =
+                data[field.name];
+
+        }else{
+
+            field.value =
+                data[field.name];
+
+        }
+
+    });
+
+    updateProgress();
+
+}
+
+
+/* Auto-save */
+
+form.addEventListener(
+    "input",
+    saveDraft
+);
+
+form.addEventListener(
+    "change",
+    saveDraft
+);
+
+loadDraft();
+
+</script>
+
+</body>
+</html>
